@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#101524" />
+  <title>Royal Ludo — 3D board game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Royal Ludo home"><span class="brand-mark">♟</span><span>royal<span class="brand-light">ludo</span></span></a>
+      <div class="top-actions"><span class="table-label"><i></i> PRIVATE TABLE</span><button class="icon-btn" id="soundBtn" aria-label="Toggle sound" title="Toggle sound">♫</button><button class="icon-btn" id="helpBtn" aria-label="How to play" title="How to play">?</button></div>
+    </header>
+    <main class="game-layout">
+      <section class="board-column" aria-label="Ludo board">
+        <div class="board-stage">
+          <div class="board-glow"></div>
+          <div id="board" role="application" aria-label="Interactive 3D Ludo board"></div>
+          <div class="turn-pill" id="turnPill"><span class="turn-dot"></span><span id="turnText">YOUR TURN</span></div>
+          <div class="board-tools"><button id="cameraBtn" class="tool-btn" title="Reset camera">⟳</button></div>
+        </div>
+        <div class="board-foot"><span>✦ <b>SAFE ZONES</b> are marked with a star</span><span class="live-indicator"><i></i> LIVE GAME</span></div>
+      </section>
+      <aside class="game-panel">
+        <div class="panel-heading"><div><div class="eyebrow">CLASSIC MODE</div><h1>Roll &amp; race</h1></div><button id="newGameBtn" class="new-game-btn" title="Start a new game">↻ <span>New game</span></button></div>
+        <div class="status-card" id="statusCard"><div class="status-avatar" id="statusAvatar">🔴</div><div class="status-copy"><div class="status-kicker" id="statusKicker">IT'S YOUR TURN</div><div class="status-message" id="statusMessage">Roll a six to get started!</div></div><div class="status-sparkle">✦</div></div>
+        <div class="dice-area"><div class="dice-row"><div class="die" id="die"><span>⚄</span></div><div class="dice-hint" id="diceHint">Tap to roll<br><small>Need a 6 to leave home</small></div></div><button class="roll-btn" id="rollBtn"><span class="roll-icon">⚄</span><span id="rollLabel">ROLL DICE</span><span class="roll-arrow">→</span></button><div class="roll-note" id="rollNote">Your turn · Roll a 6 to begin</div></div>
+        <div class="players-heading"><span>PLAYERS</span><span id="turnCounter">ROUND 1</span></div>
+        <div class="players-list" id="playersList"></div>
+        <div class="rules-strip"><span class="rules-icon">✧</span><div><b>QUICK RULES</b><span>Roll 6 to enter · Capture to send rivals home · First to finish all 4 wins</span></div></div>
+        <div class="panel-footer"><span>MADE FOR GOOD COMPANY</span><span>✦ &nbsp; 2–4 PLAYERS</span></div>
+      </aside>
+    </main>
+  </div>
+  <div class="modal-backdrop" id="helpModal" hidden><section class="help-modal" role="dialog" aria-modal="true" aria-labelledby="helpTitle"><button class="modal-close" id="closeHelp" aria-label="Close">×</button><div class="eyebrow">THE CLASSICS, REIMAGINED</div><h2 id="helpTitle">How to play</h2><p>Race all four of your tokens from the home yard, around the board, and up your color's home lane.</p><ol><li><b>Roll a 6</b> to bring a token onto the board. A six earns another roll.</li><li><b>Tap a highlighted token</b> to move it. You need an exact roll to reach home.</li><li><b>Land on a rival</b> to send them back to their yard. Star tiles are safe.</li><li><b>Finish all four tokens</b> before the other players to win.</li></ol><p class="modal-note">You're playing against three friendly computer opponents. Good luck!</p><button class="roll-btn modal-play" id="playBtn">LET'S PLAY <span>→</span></button></section></div>
+  <div class="toast" id="toast" aria-live="polite"></div>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
